@@ -30,6 +30,7 @@ export default {
     components: {
         TicketsListItemComponent
     },
+    emits: ['change-tg-button-state', 'set-selected-item-id'],
     data() {
         return {
             filteredValue: '',
@@ -52,10 +53,10 @@ export default {
     },
     methods: {
         selectItem(id) {
-            this.employees.forEach(el => {
+            this.tickets.forEach(el => {
                 el.id == id ? el.isSelected = !el.isSelected : el.isSelected = false
             });
-            const currentItem = this.employees.filter(el => el.isSelected)
+            const currentItem = this.tickets.filter(el => el.isSelected)
             this.$emit('set-selected-item-id', currentItem.length > 0 ? currentItem[0].id : 0)
         },
         clearInput() {

@@ -1,7 +1,7 @@
 <template>
-    <el-row class="search-card">
+    <el-row>
         <el-col>
-            <el-card style="max-width: 480px">
+            <el-card class="search-card" :class="ticket.isSelected ? 'selected-card' : 'deselected-card'" shadow="hover" @click="chooseEvent(ticket)" style="max-width: 480px">
                 <template #header>
                     <el-row>
                         <el-col>
@@ -37,8 +37,15 @@
 
 export default {
     "name": "TicketsListItemComponent",
+    emits: ['select-item'],
     props: {
         ticket: Object
+    },
+    methods: {
+        chooseEvent(item) {
+            this.$emit('select-item', item.id)
+            console.log(item)
+        }
     },
 }
 </script>
