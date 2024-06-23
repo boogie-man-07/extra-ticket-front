@@ -127,6 +127,10 @@ el-card.deselected-card {
   background-color: lightgray;
 }
 
+.el-input.custom-input {
+  height: 60px;
+}
+
 .el-text.ticket-title {
   width: auto;
   display: flex;
